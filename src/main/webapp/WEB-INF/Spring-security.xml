@@ -14,16 +14,15 @@ xsi:schemaLocation="http://www.springframework.org/schema/beans
 				authentication-success-forward-url="/" 
 				authentication-failure-forward-url="/login?error"/>
 			<logout logout-url="/logout" logout-success-url="/login" />
-			<access-denied-handler error-page="/accessDenied" />
 			
 		</http>
-				
+			 	
 <!-- Service that implements Spring Security UserDetails Service -->
 	<authentication-manager>
 		<authentication-provider user-service-ref='LoginService' />
 	</authentication-manager>
 
 <!-- Bean definition of the service -->
-<beans:bean id="LoginService" class="com.app.service.LoginService"/>
+<beans:bean id="LoginService" class="com.store.service.LoginService"/>
 		
 </beans:beans> 

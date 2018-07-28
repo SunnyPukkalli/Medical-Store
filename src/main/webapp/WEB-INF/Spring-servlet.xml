@@ -16,7 +16,7 @@
         
          <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="org.postgresql.Driver" />
-		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/DB_1" />
+		<property name="url" value="jdbc:postgresql://127.0.0.1:5432/medicine" />
 		<property name="username" value="users" />
 		<property name="password" value="users" />
 	</bean>
@@ -27,7 +27,7 @@
         
         
         <bean id="jspviewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		    <property name="prefix" value="/WEB-INF/jsp/"/>
+		    <property name="prefix" value="/WEB-INF/pages/"/>
 		    <property name="suffix" value=".jsp"/>
 		</bean>
 		
