@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+xmlns:beans="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/security
+		http://www.springframework.org/schema/security/spring-security.xsd">
+		
+		<http>
+			<intercept-url pattern="/login" access="permitAll"/>
+			<intercept-url pattern="/" access="hasRole('USER') or hasRole('ADMIN')" />
+			<form-login login-page="/login"  
+				authentication-success-forward-url="/" 
+				authentication-failure-forward-url="/login?error"/>
+			<logout logout-url="/logout" logout-success-url="/login" />
+			<access-denied-handler error-page="/accessDenied" />
+			
+		</http>
+				
+<!-- Service that implements Spring Security UserDetails Service -->
+	<authentication-manager>
+		<authentication-provider user-service-ref='LoginService' />
+	</authentication-manager>
+
+<!-- Bean definition of the service -->
+<beans:bean id="LoginService" class="com.app.service.LoginService"/>
+		
+</beans:beans> 
